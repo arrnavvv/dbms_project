@@ -4,27 +4,21 @@
     $password=$_POST['password'];
 
     if($username && $password){
-        $link=mysqli_connect('localhost','root','');
-
-        if(!$link){
-            die('Failed to connect to the server '.mysqli_error());
-        }
-        $db=mysqli_select_db($link,'business');
+       
+        $db=mysqli_connect('localhost','root','','test');
 
         if(!$db){
             die('Unable to select database');
         }
 
-        if(($username=='Harshal' && $password='harshal') || ($username=='Arnav' && $password=='arnav')){
-            $count=1;
-        }
-        else{
-            include('login_form.php'); 
-            echo '<center>Incorrect Username or Password !!!<center>'; 
-            exit(); 
-        }
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 
-        if($count==1){
+        $result = mysqli_query($db, $sql);
+
+       $num = mysqli_num_rows($result);
+
+
+        if($num==1){
             session_start();
             $_SESSION['IS_AUTHENTICATED']=1;
             $_SESSION['USER_ID']=$username;
@@ -32,19 +26,19 @@
         }
 
         else{  
-            include('login_form.php'); 
+            include('login_modified.php'); 
             echo '<center>Incorrect Username or Password !!!<center>'; 
             exit(); 
         }
     }
     else{ 
-        include('login_form.php'); 
+        include('login_modified.php'); 
         echo '<center>Username or Password missing!!</center>'; 
         exit(); 
     }
  } 
 else{ 
-    header("location: login_form.php"); 
+    header("location: login_modified.php"); 
     exit(); 
  }  
 ?>
