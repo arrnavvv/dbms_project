@@ -11,7 +11,7 @@ $validationFlag = true;
 //Check all the required fields are filled 
 if(!($_POST['transaction_id']))
 { 
-echo 'All the fields marked as * are compulsary.<br>'; 
+echo '<center>Please enter valid data.</center>'; 
 $validationFlag = false; 
 } 
 
@@ -36,33 +36,51 @@ if(!$db){
 die("Unable to select database"); 
 } 
 //Create Insert query 
-$query= "SELECT product_name,price,stock FROM product where product_id='$product_id'";
+$flag=true;
+
+$query="SELECT * from customer where customer_id='$customer_id'";
 $result=mysqli_query($link,$query);
+if (mysqli_num_rows($result)==0) {
+    die('<center>Enter Correct Customer Id!!</center>');
+    $flag=false;
+  }
 
-while($row = mysqli_fetch_assoc($result)){
-    $product_name=$row['product_name'];
-    $price=$row['price'];
-    $stock=$row['stock'];
+$query="SELECT * from product where product_id='$product_id'";
+$result=mysqli_query($link,$query);
+if (mysqli_num_rows($result)==0) {
+    die( '<center>Enter Correct Product Id!!</center>');
+    $flag=false;
 }
 
-if($quantity<=$stock){
+if($flag){
+    $query= "SELECT product_name,price,stock FROM product where product_id='$product_id'";
+    $result=mysqli_query($link,$query);
 
-    $amount=$quantity*$price;
-    $query = "INSERT INTO sales VALUES ('$transaction_id','$customer_id','$product_id','$product_name','$quantity','$price','$amount','$date')"; 
-    //Execute query 
-    $results = mysqli_query($link,$query); 
+    while($row = mysqli_fetch_assoc($result)){
+        $product_name=$row['product_name'];
+        $price=$row['price'];
+        $stock=$row['stock'];
+    }
 
-    $query= "UPDATE product set stock=stock-$quantity where product_id='$product_id'";
-    $results = mysqli_query($link,$query);
+    if($quantity<=$stock && $stock!=0){
 
-    if($results == FALSE) 
-    echo mysqli_error($link) . '<br>'; 
-    else 
-    echo 'Data inserted successfully! ';
+        $amount=$quantity*$price;
+        $query = "INSERT INTO sales VALUES ('$transaction_id','$customer_id','$product_id','$product_name','$quantity','$price','$amount','$date')"; 
+        //Execute query 
+        $results = mysqli_query($link,$query); 
+
+        $query= "UPDATE product set stock=stock-$quantity where product_id='$product_id'";
+        $results = mysqli_query($link,$query);
+
+        if($results == FALSE) 
+        echo mysqli_error($link) . '<br>'; 
+        else 
+        echo '<center>Data inserted successfully! </center>';
+    }
+    else{
+        echo "<center>Stock Available is less than the Quantity ordered.<br> Stock Available for the ".$product_name." in the company is ".$stock."</center>";
+    } 
 }
-else{
-    echo "Stock Available is less than the Quantity ordered. Stock Available for the ".$product_name." in the company is ".$stock;
-} 
 } 
 } 
 

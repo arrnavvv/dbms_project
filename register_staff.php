@@ -3,7 +3,7 @@
 <?php 
     session_start(); 
     if(isset($_SESSION['IS_AUTHENTICATED']) && $_SESSION['IS_AUTHENTICATED'] == 1){ 
-    require('menu.php'); 
+    
     } 
     else{ 
     header('location:login_modified.php'); 
@@ -20,11 +20,12 @@
 </head>
     <body style="background-color:#F56991"> 
         <center> 
-             <h1 align="center" style="color:white"> Staff Updation form </h1><br><br> 
+             <h1 align="center" style="color:white"> Staff Updation form </h1><br>
+             <h5 align="center" style="color:white">Only Staff ID needed for deletion</h5><br><br>
             <div class="container">
            <div class="form-container sign-up-container">
             <form action="edit_staff.php" method="post"> 
-            <input type="text" name="staff_id" maxlength="15" placeholder = "Employee Id" id="login" aria-describedby="emailHelp"> <br><br>
+            <input type="text" name="staff_id" maxlength="15" placeholder = "Employee Id*" id="login" aria-describedby="emailHelp"> <br><br>
             <input type="text" name="staff_name" maxlength="15" placeholder = "Employee Name" id="login" aria-describedby="emailHelp"> 
             <br><br>
            

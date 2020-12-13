@@ -22,11 +22,12 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
     <title>STAFF</title>
 </head>
 
-<body>
+<body style="background-color:#d8f3f8">
+<center> <button onclick="window.print()">PRINT STAFF DETAILS</button></center>
     <?php require "menu.php" ?>
     <br><br>
     <center>
-        <h2>Staff Details</h2>
+        <h2 style="font-size:50px">Staff Details</h2>
     </center>
     <br><br>
 <center>
@@ -38,7 +39,7 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
                   if(!$db){
             die('Unable to select database');
         }
-                 $qry='SELECT * FROM staff';
+                 $qry='SELECT * FROM staff ORDER BY staff_id';
                  $result=mysqli_query($db,$qry);
                 $num=mysqli_num_rows($result);
                 if($num>0){
@@ -47,6 +48,7 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
         <th>Employee Id</th>
         <th>Employee Name</th>
         <th>Phone Number</th>
+        <th>Department/Title</th>
                         </tr>
                         </thead>
                         <tbody>";
@@ -56,6 +58,7 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
                                 <td>".$row['staff_id']."</td>
                                 <td>".$row['staff_name']."</td>
                                 <td>".$row['phone_number']."</td>
+                                <td>".$row['department']."</td>
                             </tr>";
                         }
                     echo"</tbody>";

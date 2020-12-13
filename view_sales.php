@@ -21,6 +21,7 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
 </head>
 
 <body>
+<center> <button onclick="window.print()">PRINT SALES DETAILS</button></center>
     <?php require "menu.php" ?>
     <br><br>
     <center>

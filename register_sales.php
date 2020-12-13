@@ -2,7 +2,7 @@
 <?php 
     session_start(); 
     if(isset($_SESSION['IS_AUTHENTICATED']) && $_SESSION['IS_AUTHENTICATED'] == 1){ 
-    require('menu.php'); 
+    
     } 
     else{ 
     header('location:login_modified.php'); 
@@ -18,6 +18,7 @@
     <title>Sales edit</title>
 </head>
     <body style="background-color:#F56991"> 
+   
         <center> 
              <h1 align="center" style="color:white"> Sales Updation form </h1><br><br> 
 
@@ -27,13 +28,13 @@
            <!--<div class="form-group col-md-6">-->
            
 		
-            <input type="text" name="transaction_id" maxlength="15" placeholder = "Transaction ID" id="login" aria-describedby="emailHelp"> <br><br>
+            <input style="margin-top:55px" type="text" name="transaction_id" maxlength="15" placeholder = "Transaction ID" id="login" aria-describedby="emailHelp"> <br><br>
             <input type="text" name="customer_id" maxlength="15" placeholder = "Customer ID" id="login" aria-describedby="emailHelp"> 
             <br><br>
            
             <input type="text" name="product_id" maxlength="15" placeholder = "Product ID" id="login" aria-describedby="emailHelp"><br><br>
             <input type="text" name="quantity" maxlength="15" placeholder = "Quantity" id="login" aria-describedby="emailHelp"> <br><br>
-            <input type="text" name="date" maxlength="15" placeholder = "Date" id="login" aria-describedby="emailHelp"> <br><br>
+            <input type="date" name="date" maxlength="15" placeholder = "Date" id="login" aria-describedby="emailHelp"> <br><br>
             </div><br>
             <button type="submit" name="submit" value="Insert" style = "margin:180px -180px 100px 100px;">INSERT</button>
           

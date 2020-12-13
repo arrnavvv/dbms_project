@@ -20,11 +20,12 @@ if(!isset($_SESSION['IS_AUTHENTICATED']) || $_SESSION['IS_AUTHENTICATED']!=true)
     <title>STOCK</title>
 </head>
 
-<body>
+<body style="background-color:#d8f3f8">
+<center> <button onclick="window.print()">PRINT STOCK DETAILS</button></center>
     <?php require "menu.php" ?>
     <br><br>
     <center>
-        <h2>STOCK</h2>
+        <h2 style="font-size:50px">STOCK</h2>
     </center>
     <br><br>
 <center>

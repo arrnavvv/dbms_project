@@ -2,7 +2,7 @@
 <?php 
 session_start(); 
 if(isset($_SESSION['IS_AUTHENTICATED']) && $_SESSION['IS_AUTHENTICATED'] == 1){ 
-require('menu.php'); 
+
 } 
 else{ 
 header('location:login_modified.php'); 

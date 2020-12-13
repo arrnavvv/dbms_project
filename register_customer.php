@@ -2,7 +2,7 @@
 <?php 
     session_start(); 
     if(isset($_SESSION['IS_AUTHENTICATED']) && $_SESSION['IS_AUTHENTICATED'] == 1){ 
-    require('menu.php'); 
+   
     } 
     else{ 
     header('location:login_modified.php'); 
@@ -19,7 +19,10 @@
 </head>
     <body style="background-color:#F56991"> 
         <center> 
-             <h1 align="center" style="color:white"> Customer Updation form </h1><br><br> 
+       
+             <h1 align="center" style="color:white"> Customer Updation form </h1><br>
+             <h4 align="center" style="color:white"> Only Customer Id required for Deletion</h4><br><br> 
+             
            <div class="container">
            <div class="form-container sign-up-container">
             <form action="edit_customer.php" method="post"> 

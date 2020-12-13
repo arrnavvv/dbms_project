@@ -68,12 +68,11 @@ h3{
 
 .dropbtn {
 	padding: 16px;
-	color:#777;
+	color:white;
 	border: none;
-	background: Turquoise;
   }
   .dropbtn a{
-	color:#777;
+	color:white;
 	text-decoration:none;
   }
   
@@ -106,5 +105,5 @@ h3{
   
   .dropdown:hover .dropdown-content {display: block;}
   
-  .dropdown:hover .dropbtn {color:rgb(80,80,80)}
-  .dropdown:hover .dropbtn a {color:rgb(80,80,80)}
+  .dropdown:hover .dropbtn {color:rgb(170,170,170)}
+  .dropdown:hover .dropbtn a {color:rgb(170,170,170)}
