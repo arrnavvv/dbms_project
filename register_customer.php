@@ -5,34 +5,38 @@
     require('menu.php'); 
     } 
     else{ 
-    header('location:login_form.php'); 
+    header('location:login_modified.php'); 
     exit(); 
     } 
 ?> 
 <html> 
-    <body> 
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link rel="stylesheet" href="table.css">-->
+<link rel="stylesheet" type="text/css" href="login_css.css">
+    <title>customer edit</title>
+</head>
+    <body style="background-color:#F56991"> 
         <center> 
-            <h1>Customer Registration/Updation Form</h1> 
+             <h1 align="center" style="color:white"> Customer Updation form </h1><br><br> 
+           <div class="container">
+           <div class="form-container sign-up-container">
             <form action="edit_customer.php" method="post"> 
-            <table cellpadding = "10"> 
-            <tr>
-            <td>Customer Id*</td> 
-            <td><input type="text" name="customer_id" maxlength="15"></td> 
-            </tr>
-            <tr>
-            <td>Customer Name</td> 
-            <td><input type="text" name="customer_name" maxlength="15"></td> 
-            </tr> 
-            <tr>
-            <td>Phone Number</td> 
-            <td><input type="text" name="phone_number" maxlength="15"></td> 
-            </tr>
-            <td><input type="submit" name="submit" value="Insert"></td> 
-            <td><input type="submit" name="submit" value="Update"></td> 
-            <td><input type="submit" name="submit" value="Delete"></td> 
-            </tr> 
-            </table> 
+            <input type="text" name="customer_id" maxlength="15" placeholder = "Customer ID" id="login" aria-describedby="emailHelp"> <br><br>
+            
+           
+            <input type="text" name="customer_name" maxlength="15" placeholder = "Customer Name" id="login" aria-describedby="emailHelp"> 
+            <br><br>
+           
+            <input type="text" name="phone_number" maxlength="15" placeholder = "Phone Number" id="login" aria-describedby="emailHelp"><br>
+            </div><br>
+            <button type="submit" name="submit" value="Insert" style = "margin:60px 200px 110px 400px;">INSERT</button>
+            <button type="submit" name="submit" value="Update" style = "margin:-10px 200px 110px 400px;">UPDATE</button>
+            <button type="submit" name="submit" value="Delete" style = "margin:-30px 200px 90px 400px;">DELETE</button>
+            
             </form> 
+            </div>
         </center> 
     </body> 
 </html>

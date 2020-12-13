@@ -4,6 +4,6 @@ session_start();
 session_unset(); 
 session_destroy(); 
 //Redirect to login page 
-header("location: business.html"); 
+header("location:login_modified.php"); 
 exit(); 
 ?>

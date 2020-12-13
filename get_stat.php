@@ -14,7 +14,7 @@ if(!$link){
 die('Failed to connect to server: ' . mysqli_error()); 
 } 
 
-$db = mysqli_select_db($link,'business'); 
+$db = mysqli_select_db($link,'test'); 
 if(!$db){ 
 die("Unable to select database"); 
 } 
@@ -60,7 +60,7 @@ if(!$link){
 die('Failed to connect to server: ' . mysqli_error()); 
 } 
 //Select database 
-$db = mysqli_select_db($link,'business'); 
+$db = mysqli_select_db($link,'test'); 
 if(!$db){ 
 die("Unable to select database"); 
 } 
@@ -107,7 +107,7 @@ if ($_POST['submit'] == 'Delete Stock by 1') {
     die('Failed to connect to server: ' . mysqli_error()); 
     } 
     //Select database 
-    $db = mysqli_select_db($link,'business'); 
+    $db = mysqli_select_db($link,'test'); 
     if(!$db){ 
     die("Unable to select database"); 
     } 
@@ -145,7 +145,12 @@ if ($_POST['submit'] == 'Delete Stock by 1') {
     }
 } 
 else{ 
-header('location:login_form.php'); 
+header('location:login_modified.php'); 
 exit(); 
 } 
 ?>
+<html>
+<head>
+ <link rel="stylesheet" href="table.css">
+</head>
+</html>

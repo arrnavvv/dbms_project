@@ -28,7 +28,7 @@ if(!$link){
 die('Failed to connect to server: ' . mysqli_error($link)); 
 } 
 //Select database 
-$db = mysqli_select_db($link,'business'); 
+$db = mysqli_select_db($link,'test'); 
 if(!$db){ 
 die("Unable to select database"); 
 } 
@@ -56,7 +56,7 @@ echo 'Data inserted successfully! ';
 } 
 else{ 
     echo "hi";
-header('location:login_form.php'); 
+header('location:login_modified.php'); 
 exit(); 
 } 
 ?>

@@ -11,7 +11,7 @@
             die("Unable to connect ".mysqli_error());
         }
 
-        $db=mysqli_select_db($link,'business');
+        $db=mysqli_select_db($link,'test');
 
         if(!$db){
             die('Unable to select database');
@@ -46,7 +46,7 @@
 }
 
 else{ 
-    header('location:login_form.php'); 
+    header('location:login_modified.php'); 
     exit(); 
 } 
 ?>
